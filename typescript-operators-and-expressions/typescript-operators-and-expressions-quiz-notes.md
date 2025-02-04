@@ -5,10 +5,10 @@
 Answer the following questions in the provided markdown file before turning in this exercise:
 
 - What data type is returned by an arithmetic operation?
-  numbers
+  number
 
 - What is string concatenation?
-  it helps you add spaces to series of characters or words.
+  it helps you join 2 or more words and can add spaces to series of characters or words.
 
 - What purpose(s) does the `+` plus operator serve in JavaScript?
   addition - to add numbers
