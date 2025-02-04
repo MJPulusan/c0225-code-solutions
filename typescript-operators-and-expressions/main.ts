@@ -5,9 +5,9 @@ const area: number = width * height;
 console.log('value of area:', area);
 console.log('type of area:', typeof area);
 
-const bill: number = 1000;
-const payment: number = 700;
-const change: number = bill - payment;
+const bill: number = 800;
+const payment: number = 1000;
+const change: number = payment - bill;
 
 console.log('value of change:', change);
 console.log('type of change:', typeof change);
@@ -39,7 +39,8 @@ const isSparta: boolean = headCount === 300;
 console.log('value of isSparta:', isSparta);
 console.log('type of isSparta:', typeof isSparta);
 
-const motto: string = fullName + ' ' + 'is the GOAT';
+let motto: string = fullName;
+motto += 'is the GOAT';
 
 console.log('value of motto:', motto);
 console.log('type of motto:', typeof motto);
