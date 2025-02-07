@@ -6,11 +6,11 @@ function convertMinutesToSeconds(minutes) {
 const result = convertMinutesToSeconds(5); // 300
 console.log('convertMinutesToSeconds value:', result);
 function greet(name) {
-  const name1 = name;
+  const name1 = 'Hey, ' + name + '!';
   return name1;
 }
 const greeting = greet('Mike');
-console.log('Greetings value: Hey', greeting + '!');
+console.log('Greetings value:', greeting);
 function getArea(width, height) {
   const sumArea = width * height;
   return sumArea;
