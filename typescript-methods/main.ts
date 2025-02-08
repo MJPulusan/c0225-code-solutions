@@ -46,8 +46,29 @@ console.log('firstBook:', firstBook);
   console.log('library:', library);
 }
 
-// const fullName = 'Michael John Pulusan';
-// split(' ');
+// String Methods
 
-// const firstAndLastName = fullName;
-// console.log(str.split());
+const fullName = 'Michael John Pulusan';
+const firstNameAndLastName = fullName.split(' ');
+console.log(firstNameAndLastName);
+
+const firstName = firstNameAndLastName[0];
+const sayMyName = firstName.toUpperCase();
+console.log('sayMyName:', sayMyName);
+
+// Object Methods
+
+const employee = {
+  name: 'James',
+  age: 32,
+  position: 'VP',
+};
+
+const employeeKeys = Object.keys(employee);
+console.log('employeeKeys:', employeeKeys);
+
+const employeeValues = Object.values(employee);
+console.log('employeeValues:', employeeValues);
+
+const employeePairs = Object.entries(employee);
+console.log('employeePairs:', employeePairs);
