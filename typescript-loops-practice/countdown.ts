@@ -1,12 +1,24 @@
 /* exported countdown */
+
 function countdown(num: number): number[] {
   const numbers = [];
-  let currentNum = 10;
+  let currentNum = 5;
 
-  while (currentNum >= 1) {
+  while (currentNum >= 0) {
     numbers.push(currentNum);
     currentNum--;
   }
   return numbers;
-    console.log(currentNum);
-}
+
+
+// let numOfTen = 10;
+// while (numOfTen >= 0) {
+//   numbers.push(numOfTen);
+//   numOfTen--;
+// }
+// return numbers;
+// }
+
+for (let currentNumber=10; currentNumbrt >=0; i--){
+return numbers;
+}}
