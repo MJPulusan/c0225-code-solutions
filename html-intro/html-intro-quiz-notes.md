@@ -5,10 +5,10 @@
 Answer the following questions in the provided markdown file before turning in this exercise:
 
 - Where do you put non-visible content about the HTML document?
-<head> element
+<head> tag
 
 - Where do you put visible content about the HTML document?
-<title>
+<body> tag
 
 - Where do the `<head>` and `<body>` tags go in a valid HTML document?
   inside the <html> element
