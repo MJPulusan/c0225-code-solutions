@@ -19,6 +19,8 @@ function countdown(num: number): number[] {
 // return numbers;
 // }
 
-for (let currentNumber=10; currentNumbrt >=0; i--){
+const 
+for (let i = 10; i >= 0; i--){
 return numbers;
-}}
+}
+}
