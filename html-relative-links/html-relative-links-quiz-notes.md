@@ -14,7 +14,7 @@ Answer the following questions in the provided markdown file before turning in t
   you use "../directory_name/"
 
 - How do you indicate the relative link to the same directory?
-  if same directory, you just go directly to the .html file
+  if same directory, you just go directly to the .html file.
 
 ## Notes
 
