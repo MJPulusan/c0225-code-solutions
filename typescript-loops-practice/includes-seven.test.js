@@ -17,7 +17,7 @@ describe('includesSeven(array)', function () {
     expect(output).to.equal(false);
   });
 
-  it("takes [234,'7', 7, 322, 4] and returns true", function () {
+  it("takes [234, '7', 7, 322, 4] and returns true", function () {
     const input = noCheating([234, '7', 7, 322, 4]);
     const output = includesSeven(input);
     expect(output).to.equal(true);

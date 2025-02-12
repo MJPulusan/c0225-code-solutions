@@ -47,19 +47,20 @@ function filterOutStrings(values: (number | string)[]): number[] {
 }
 console.log(filterOutStrings);
 
-function includesSeven(array: number[]): boolean {
-  return array.every((item) => typeof item === 'number');
+function includesSeven(array: (number | string)[]): boolean {
+  // const seven = 7 || '7';
+  return array.every((item) => typeof item === 'number' || item === 'string');
 }
 console.log(includesSeven);
 
-function findIndex(array: number[], value: number): number {
-  // Filter out the target number and find the smallest number in the remaining array
-  const filteredArray = array.filter((item) => item !== value);
-  return Math.min(...filteredArray); // Find and return the smallest number
-}
-console.log(findIndex);
+// function findIndex(array: number[], value: number): number {
+//   // Filter out the target number and find the smallest number in the remaining array
+//   const filteredArray = array.filter((item) => item !== value);
+//   return Math.min(...filteredArray);
+// }
+// console.log(findIndex);
 
-function oddOrEven(numbers: number[]): string[] {
-  return numbers.map((num) => (num % 2 === 0 ? 'even' : 'odd'));
-}
-console.log(oddOrEven);
+// function oddOrEven(numbers: number[]): string[] {
+//   return numbers.map((num) => (num % 2 === 0 ? 'even' : 'odd'));
+// }
+// console.log(oddOrEven);
