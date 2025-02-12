@@ -10,17 +10,16 @@ function countdown(num: number): number[] {
   }
   return numbers;
 
+  // let numOfTen = 10;
+  // while (numOfTen >= 0) {
+  //   numbers.push(numOfTen);
+  //   numOfTen--;
+  // }
+  // return numbers;
+  // }
 
-// let numOfTen = 10;
-// while (numOfTen >= 0) {
-//   numbers.push(numOfTen);
-//   numOfTen--;
-// }
-// return numbers;
-// }
-
-const 
-for (let i = 10; i >= 0; i--){
-return numbers;
-}
+  const countdownToTen = [1, 2];
+  for (let i of countdownToTen) {
+    return i--;
+  }
 }
