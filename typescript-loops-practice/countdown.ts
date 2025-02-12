@@ -58,3 +58,8 @@ function findIndex(array: number[], value: number): number {
   return Math.min(...filteredArray); // Find and return the smallest number
 }
 console.log(findIndex);
+
+function oddOrEven(numbers: number[]): string[] {
+  return numbers.map((num) => (num % 2 === 0 ? 'even' : 'odd'));
+}
+console.log(oddOrEven);
