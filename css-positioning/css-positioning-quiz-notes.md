@@ -5,7 +5,7 @@
 Answer the following questions in the provided markdown file before turning in this exercise:
 
 - What is the **default** value for the `position` property of HTML elements?
-  normal document flow.
+  static - normal document flow.
 
 - How does setting `position: relative` on an element affect document flow?
   it maintains normal document flow but you can move it by indicating values to top, bottom, left, right.
