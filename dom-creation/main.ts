@@ -71,49 +71,44 @@ const pokedex: Pokemon[] = [
   },
 ];
 
-
-
 function renderPokemon(pokemon: Pokemon): HTMLDivElement {
+  const $columnThird = document.createElement('div');
+  $columnThird.className = 'column-third';
 
-const $columnThird = document.createElement('div');
-$columnThird.className = 'column-third';
+  const $pokemonCard = document.createElement('div');
+  $pokemonCard.className = 'pokemon-card';
+  $columnThird.appendChild($pokemonCard);
 
+  const $elementImg = document.createElement('img');
+  $elementImg.src = pokemon.imageUrl;
+  $pokemonCard.appendChild($elementImg);
 
-const $pokemonCard = document.createElement('div');
-$pokemonCard.className = 'pokemon-card';
-$columnThird.appendChild($pokemonCard);
+  const $elementCardText = document.createElement('div');
+  $elementCardText.className = 'pokemon-card-text';
+  $pokemonCard.appendChild($elementCardText);
 
-const $elementImg = document.createElement('img');
-$elementImg.src = pokemon.imageUrl;
-$pokemonCard.appendChild($elementImg);
+  const $elementName = document.createElement('h2');
+  $elementName.textContent = pokemon.name;
+  $elementCardText.appendChild($elementName);
 
-const $elementCardText = document.createElement('div');
-$elementCardText.className = 'pokemon-card-text';
-$elementImg.appendChild($elementCardText);
+  const $elementNum = document.createElement('h3');
+  $elementNum.textContent = pokemon.number;
+  $elementCardText.appendChild($elementNum);
 
-const $elementName = document.createElement('h2');
-$elementName.textContent = pokemon.name;
-$elementCardText.appendChild($elementName);
+  const $elementDesc = document.createElement('p');
+  $elementDesc.textContent = pokemon.description;
+  $elementCardText.appendChild($elementDesc);
 
-const $elementNum = document.createElement('h3');
-$elementNum.textContent = pokemon.number;
-$elementCardText.appendChild($elementNum);
+  return $columnThird;
 
-const $elementDesc = document.createElement('p');
-$elementDesc.textContent = pokemon.description;
-$elementCardText.appendChild($elementDesc);
-
-
-return $columnThird;
-
-// document.body.append($newElement1, $newElement2);
-
+  // document.body.append($newElement1, $newElement2);
 }
 
 const $row = document.querySelector('.row');
 
- if (!$row) throw new Error(`The $row query failed`);
+if (!$row) throw new Error(`The $row query failed`);
 
- for (let i = 0; pokedex.length > i; i++) {
-
- }
+for (let i = 0; i < pokedex.length; i++) {
+  const $pokemon = renderPokemon(pokedex[i]);
+  $row.appendChild($pokemon);
+}
