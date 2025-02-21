@@ -3,19 +3,19 @@ const $inputUserEmail = document.querySelector('#user-email');
 const $inputUserMessage = document.querySelector('#user-message');
 
 function handleFocus(event: Event): void {
-  const eventTarget = event.target as HTMLInputElement;
+  const eventTarget = event.target as HTMLInputElement | HTMLTextAreaElement;
   console.log('focus was fired');
   console.log('event.target.name:', eventTarget.name);
 }
 
 function handleBlur(event: Event): void {
-  const eventTarget = event.target as HTMLInputElement;
+  const eventTarget = event.target as HTMLInputElement | HTMLTextAreaElement;
   console.log('blur was fired');
   console.log('event.target.name:', eventTarget.name);
 }
 
 function handleInput(event: Event): void {
-  const eventTarget = event.target as HTMLInputElement;
+  const eventTarget = event.target as HTMLInputElement | HTMLTextAreaElement;
   console.log('event.target.name:', eventTarget.name);
 }
 
