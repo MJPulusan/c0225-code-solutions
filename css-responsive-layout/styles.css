@@ -28,40 +28,19 @@ body {
 .col-lg-fourth {
   padding: 0 0.5rem;
   flex-basis: 100%;
-}
 
-/* your code 👇 here */
-
-.row,
-.col,
-.col-sm-half {
-  flex-basis: 100%;
-
+  /* your code 👇 here */
   @media (width >= 576px) {
     &.col-sm-half {
       flex-basis: 50%;
     }
   }
-}
-
-.row,
-.col,
-.col-lg-third {
-  flex-basis: 100%;
 
   @media (width >= 768px) {
     &.col-lg-third {
       flex-basis: calc(100% / 3);
     }
-  }
-}
 
-.row,
-.col,
-.col-lg-fourth {
-  flex-basis: 100%;
-
-  @media (width >= 768px) {
     &.col-lg-fourth {
       flex-basis: 25%;
     }
