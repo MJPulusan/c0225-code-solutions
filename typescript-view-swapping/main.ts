@@ -6,13 +6,10 @@ if (!$tabContainer) throw new Error('$tabContainer does not exists');
 if (!$tab) throw new Error('$tab does not exists');
 if (!$view) throw new Error('$view does not exists');
 
-
 $tabContainer.addEventListener('click', (event: Event) => {
   const $eventTarget = event.target as HTMLDivElement;
 
-
   if ($eventTarget.matches('.tab')) {
-
     $tab.forEach(($tab) => {
       if ($tab === $eventTarget) {
         $tab.className = 'tab active';
@@ -21,15 +18,19 @@ $tabContainer.addEventListener('click', (event: Event) => {
       }
     });
 
-  const $viewID = $view.getAttribute('data-view');
-   console.log('Selected View ID:', $viewID);
+    if ($eventTarget.matches('.tab')) {
+      const $viewID = $eventTarget.getAttribute('data-view');
 
+      console.log('Selected View ID:', $viewID);
 
-  //   if ($viewID === $eventTarget) {
-  //     $viewID.className = 'view hidden';
-  //   } else {
-  //     $viewID.className = 'view';
-  //   }
-  // });
+      $view.forEach(($view) => {
+        const $viewData = $view.getAttribute('data-view');
+        if ($viewData === $viewID) {
+          $view.className = 'view';
+        } else {
+          $view.className = 'view hidden';
+        }
+      });
+    }
   }
 });
