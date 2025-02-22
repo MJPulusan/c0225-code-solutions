@@ -21,7 +21,7 @@ $tabContainer.addEventListener('click', (event: Event) => {
     if ($eventTarget.matches('.tab')) {
       const $viewID = $eventTarget.getAttribute('data-view');
 
-      console.log('Selected View ID:', $viewID);
+      // console.log('Selected View ID:', $viewID);
 
       $view.forEach(($view) => {
         const $viewData = $view.getAttribute('data-view');
