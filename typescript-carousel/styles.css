@@ -1,0 +1,32 @@
+*{
+  width: 800px;
+  margin: 0 auto;
+
+}
+
+img {
+  max-width: 100%;
+  margin: 2rem auto;
+  justify-content: space-evenly;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.fa-circle {
+  font-size: 20px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.column-third {
+    position: relative;
+}
+
+
+i {
+  font-size: 70px;
+  cursor: pointer;
+
+}
+
