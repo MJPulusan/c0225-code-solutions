@@ -46,3 +46,6 @@ const [book3, book4, book5] = library;
 console.log(book3);
 console.log(book4);
 console.log(book5);
+
+const [, , , book6] = library;
+console.log(book6);
