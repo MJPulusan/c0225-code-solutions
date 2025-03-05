@@ -38,11 +38,16 @@ function filterOutStrings(values) {
     return values.filter((item) => typeof item === 'number' || item === null);
 }
 console.log(filterOutStrings);
-function includesSeven(array) {
-    // const seven = 7 || '7';
-    return array.every((item) => typeof item === 'number' || item === 'string');
+function includesSeven(values) {
+    for (const value of values) {
+        if (value === 7) {
+            return true;
+        }
+    }
+    return false;
 }
-console.log(includesSeven);
+// console.log(includesSeven([7, 77, 87, 88, 67, 85, 44]));
+// console.log(includesSeven([87, 88, 67, 85, 44]));
 // function findIndex(array: number[], value: number): number {
 //   // Filter out the target number and find the smallest number in the remaining array
 //   const filteredArray = array.filter((item) => item !== value);
