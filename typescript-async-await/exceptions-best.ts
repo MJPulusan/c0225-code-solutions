@@ -29,6 +29,10 @@ async function throwChained(): Promise<void> {
   console.log(elapsed(), 'throwChained3:', message3);
 }
 
-throwOnce()
-  .then(() => throwSeveral())
-  .then(() => throwChained());
+throwOnce();
+try {
+  await throwSeveral();
+  await throwChained();
+} catch (error) {
+  console.log(`Error: ${error}`);
+}
