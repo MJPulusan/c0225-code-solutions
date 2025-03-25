@@ -1,3 +1,7 @@
-export function Button() {
-  return <button>Click For Next Image</button>;
+type ButtonProps = {
+  name: string;
+};
+
+export function Button({ name }: ButtonProps) {
+  return <button>{name}</button>;
 }

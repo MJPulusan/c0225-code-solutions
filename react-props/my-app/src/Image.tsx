@@ -1,11 +1,7 @@
-import './Image.css';
-
-export function Image() {
-  return (
-    <div className="d-flex justify-content-center">
-      <div className="width-50 ">
-        <img className="image-fill" src="/starry-sky.jpeg" alt="space-image" />
-      </div>
-    </div>
-  );
+type ImageProps = {
+  src: string;
+  alt: string;
+};
+export function Image({ src, alt }: ImageProps) {
+  return <img src={src} alt={alt} />;
 }

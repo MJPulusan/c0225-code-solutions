@@ -9,7 +9,7 @@ export default function App() {
   return (
     <>
       <Header text="React Image Bank" />
-      <Image />
+      <Image src="/starry-sky.jpeg" alt="space-image" />
       <Caption text="A beautiful Image of Space" />
       <Description
         text="  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam incidunt
@@ -21,7 +21,7 @@ export default function App() {
       pariatur aperiam nemo, maiores laboriosam quam quod nisi ipsum, dicta sunt
       laborum similique repellat?"
       />
-      <Button />
+      <Button name="Click For Next Image" />
     </>
   );
 }
