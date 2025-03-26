@@ -26,18 +26,6 @@ export function App() {
     }
   }
 
-  // export function App() {
-  //   return (
-  //     <>
-  //       <Header text="React Image Bank" />
-  //       <Image srcs={srcs} />
-  //       <Caption captions={captions} />
-  //       <Description texts={descriptions} />
-  //       <Button label="Click for Next Image" />
-  //     </>
-  //   );
-  // }
-
   return (
     <>
       <Header text="React Image Bank" />
