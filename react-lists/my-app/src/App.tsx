@@ -1,6 +1,6 @@
 import React from 'react';
 import { PokemonList, Pokemon } from './PokemonList';
-
+import './App.css';
 import './index.css';
 
 const pokedex: Pokemon[] = [
@@ -11,7 +11,7 @@ const pokedex: Pokemon[] = [
   { number: '039', name: 'Jigglypuff' },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <div>
       <h1>Pokedex</h1>
@@ -19,5 +19,4 @@ const App: React.FC = () => {
     </div>
   );
 };
-
 export default App;

@@ -5,10 +5,11 @@
 Answer the following questions in the provided markdown file before turning in this exercise:
 
 - When would we want to programmatically create a list of React components?
-  when we have an array of data of we want to display.
+  When we have an array of data of we want to display and generate components dynamically.
 
 - Why is it important for React components to be data-driven?
-  for reusability, improved testing and debugging, for dynamic rendering.
+  For reusability, improved testing and debugging, for dynamic rendering.
+  It utilizes the virtual DOM to display data, updating the altered parts when data changes.
 
 - What `Array` method is commonly used to create a list of React components?
   Map method - Array.map()

@@ -9,7 +9,7 @@ interface Props {
   pokedex: Pokemon[];
 }
 
-export const PokemonList: React.FC<Props> = ({ pokedex }) => {
+export const PokemonList = ({ pokedex }: Props) => {
   return (
     <ul>
       {pokedex.map((pokemon) => (
