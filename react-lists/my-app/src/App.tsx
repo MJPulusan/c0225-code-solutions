@@ -1,6 +1,6 @@
 import React from 'react';
-import { PokemonList } from './PokemonList';
-import { Pokemon } from './PokemonList'; // Pokemon type
+import { PokemonList, Pokemon } from './PokemonList';
+
 import './index.css';
 
 const pokedex: Pokemon[] = [
