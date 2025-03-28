@@ -22,7 +22,7 @@ Answer the following questions in the provided markdown file before turning in t
   also it has instant or real-time validation.
 
 - What two props must you pass to an input for it to be "controlled"?
-  the value prop and the event handle prop.
+  the value prop and the onChange event handle prop.
 
 - What are some popular npm packages for creating forms in React?
   React Hook Form

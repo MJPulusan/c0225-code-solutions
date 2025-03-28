@@ -17,6 +17,7 @@ export default function RegistrationFormControlled() {
           Username: (Controlled)
           <input
             id="username2"
+            name="username2"
             type="text"
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -26,6 +27,7 @@ export default function RegistrationFormControlled() {
           Password:
           <input
             id="password2"
+            name="password2"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />

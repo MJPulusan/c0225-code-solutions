@@ -17,12 +17,12 @@ export default function RegistrationFormUncontrolled() {
       <form onSubmit={handleSubmit}>
         <label>
           Username: (Uncontrolled)
-          <input id="username1" type="text"></input>
+          <input id="username1" name="username1" type="text"></input>
         </label>
 
         <label>
           Password:
-          <input id="password1" type="password"></input>
+          <input id="password1" name="password1" type="password"></input>
         </label>
 
         <button type="submit">Sign Up</button>
