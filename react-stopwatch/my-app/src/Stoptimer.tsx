@@ -30,13 +30,13 @@ export default function Stopwatch() {
 
   // Toggle play/pause icon.
   function toggleTimer() {
-    setIsRunning((prev) => !prev); // Toggle running state.
+    setIsRunning((prev) => !prev); // Toggle running state
   }
 
   // Reset the timer (circle).
   function handleCircleClick() {
     if (!isRunning) {
-      setTimer(0); // Reset time when paused.
+      setTimer(0); // Reset time when paused
     }
   }
 
