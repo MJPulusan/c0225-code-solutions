@@ -7,10 +7,10 @@ export type Topic = {
 };
 
 type Props = {
-  topics: Topic[];
+  list: Topic[];
 };
 
-export default function TopicCard({ topics }: Props) {
+export default function TopicCard({ list }: Props) {
   const [activeTopic, setActiveTopic] = useState<number | undefined>();
 
   const handleToggle = (index: number) => {
@@ -19,7 +19,7 @@ export default function TopicCard({ topics }: Props) {
 
   return (
     <div className="accordion">
-      {topics.map((topic, index) => (
+      {list.map((topic, index) => (
         <div key={topic.id} className="accordion-item">
           <div className="header" onClick={() => handleToggle(index)}>
             {topic.title}

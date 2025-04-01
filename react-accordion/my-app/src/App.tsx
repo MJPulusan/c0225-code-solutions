@@ -25,7 +25,7 @@ const topics = [
 export default function App() {
   return (
     <div className="App">
-      <Accordion topics={topics} />
+      <Accordion list={topics} />
     </div>
   );
 }
