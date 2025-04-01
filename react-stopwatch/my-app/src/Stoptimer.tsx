@@ -1,36 +1,22 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { FaPlay, FaPause } from 'react-icons/fa';
 import './Stoptimer.css';
 
 export default function Stopwatch() {
   const [time, setTimer] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null); // stores the timer
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout>();
 
-  useEffect(() => {
-    // Start the timer and store the interval ID in the ref
-    if (isRunning) {
-      timerRef.current = setInterval(() => {
-        setTimer((prevTime) => prevTime + 1);
-      }, 1000);
-    } else {
-      // Stop the timer when paused.
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    }
+  function handlePlay() {
+    const id = setInterval(() => setTimer((prevTime) => prevTime + 1), 1000);
+    setIntervalId(id);
+    setIsRunning(true);
+  }
 
-    // Clears the timer.
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    };
-  }, [isRunning]);
-
-  // Toggle play/pause icon.
-  function toggleTimer() {
-    setIsRunning((prev) => !prev); // Toggle running state
+  function handlePause() {
+    clearInterval(intervalId);
+    setIntervalId(undefined);
+    setIsRunning(false);
   }
 
   // Reset the timer (circle).
@@ -49,8 +35,12 @@ export default function Stopwatch() {
         </div>
 
         {/* Play/Pause button */}
-        <button onClick={toggleTimer} className="button">
-          {isRunning ? <FaPause /> : <FaPlay />}
+        <button className="button">
+          {isRunning ? (
+            <FaPause onClick={handlePause} />
+          ) : (
+            <FaPlay onClick={handlePlay} />
+          )}
         </button>
       </div>
     </div>
