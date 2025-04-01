@@ -1,10 +1,7 @@
-import { useState } from 'react'
-import { SearchableList } from './SearchableList'
-import './App.css'
+import SearchableList from './SearchableList';
+import './App.css';
 
-export default function SearchBar() {
-
-  const quotes = [
+const quotes = [
   'Yer a wizard Harry.',
   "I hope you're pleased with yourselves.",
   'It does not do well to dwell on dreams and forget to live.',
@@ -19,17 +16,10 @@ export default function SearchBar() {
   'Ah, music. A magic beyond all we do here!',
 ];
 
-
-
+export default function App() {
   return (
-<>  <div className="display-box">
-        {filter ? (
-          filteredItems.length > 0 ? (
-            filteredItems.map((item, index) => (
-              <p key={index} className="item">
-                {item}
-              </p>
-            ))))
-  </>
-
+    <div className="app-container">
+      <SearchableList list={quotes} />
+    </div>
+  );
 }
