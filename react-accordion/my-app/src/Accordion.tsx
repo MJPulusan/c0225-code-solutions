@@ -11,10 +11,10 @@ type Props = {
 };
 
 export default function TopicCard({ topics }: Props) {
-  const [activeTopic, setActiveTopic] = useState<number | null>();
+  const [activeTopic, setActiveTopic] = useState<number | undefined>();
 
   const handleToggle = (index: number) => {
-    setActiveTopic(activeTopic === index ? null : index);
+    setActiveTopic(activeTopic === index ? undefined : index);
   };
 
   return (
