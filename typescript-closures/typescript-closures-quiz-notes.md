@@ -5,7 +5,7 @@
 Answer the following questions in the provided markdown file before turning in this exercise:
 
 - In JavaScript, when is scope determined?
-  It is determined at Script Load, at the time a function is defined.
+  It is determined at Script Load, at the time a function is defined at run time.
 
 - What allows JavaScript functions to "remember" variables from their surroundings?
   Closure - it is created when a function is defined within another function, allowing the inner function to access the outer function's variables.
@@ -18,6 +18,7 @@ Answer the following questions in the provided markdown file before turning in t
   Also, any time an inner function is returned or assigned to a variable, it retains access to its outer function’s variables.
 
 - How can you tell if a function will be created with a closure?
+  referencing to outside scope.
 
 1. It is defined inside another function.
 2. It references variables from the outer function's scope.

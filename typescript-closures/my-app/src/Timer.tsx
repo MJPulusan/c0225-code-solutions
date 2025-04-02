@@ -4,8 +4,8 @@ export function Timer() {
   const [time, setTime] = useState(0);
   useEffect(() => {
     const timerId = setTimeout(() => {
-      // setTime(time + 1);
-      setTime((prevTime) => prevTime + 1); // this will avoid stale closure
+      setTime(time + 1);
+
       console.log(`Time is: ${time}`);
     }, 1000);
     return () => clearTimeout(timerId);
