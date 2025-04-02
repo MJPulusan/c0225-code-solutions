@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import {
   GoChevronLeft,
   GoChevronRight,
@@ -11,99 +11,86 @@ export type Image = {
   alt: string;
 };
 
-const images: Image[] = [
-  {
-    src: '/images/fushiguro.webp',
-    alt: 'Megumi Fushiguro',
-  },
-  {
-    src: '/images/inumaki.webp',
-    alt: 'Toge Inumaki',
-  },
-  {
-    src: '/images/itadori.webp',
-    alt: 'Yuji Itadori',
-  },
-  {
-    src: '/images/kugisaki.webp',
-    alt: 'Nobara Kugisaki',
-  },
-  {
-    src: '/images/panda.webp',
-    alt: 'Panda',
-  },
-  {
-    src: '/images/zen-in.webp',
-    alt: "Maki Zen'in",
-  },
-];
+type Props = {
+  images: Image[];
+};
 
-export default function Carousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [timer, setTimer] = useState<NodeJS.Timeout>();
+export function Carousel({ images }: Props) {
+  const [imageIndex, setImageIndex] = useState(0);
 
-  const handleInteraction = (newIndex: number) => {
-    setCurrentIndex(newIndex);
-    startTimer(); // Reset the 3-second timer after every click
-  };
+  const nextImage = useCallback(() => {
+    const nextIndex = (imageIndex + 1) % images.length;
+    setImageIndex(nextIndex);
+  }, [images, imageIndex]);
+
+  const prevImage = useCallback(() => {
+    const previousIndex = (imageIndex - 1 + images.length) % images.length;
+    setImageIndex(previousIndex);
+  }, [images, imageIndex]);
 
   useEffect(() => {
-    startTimer();
-
-    return () => {
-      if (timer) clearTimeout(timer); // Cleanup on unmount
-    };
-  }, []);
-
-  const startTimer = () => {
-    if (timer) clearTimeout(timer);
-    setTimer(
-      setTimeout(() => {
-        // NodeJS.Timeout
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        startTimer();
-      }, 3000)
-    );
-  };
-
-  const dots = (index: number) => {
-    setCurrentIndex(index);
-    startTimer();
-  };
+    const timeoutHandle = setTimeout(nextImage, 3000);
+    return () => clearTimeout(timeoutHandle);
+  }, [nextImage]);
 
   return (
-    <>
-      <div>
-        <button
-          onClick={() =>
-            handleInteraction(
-              (currentIndex - 1 + images.length) % images.length
-            )
-          }>
-          <GoChevronLeft size={24} />
-        </button>
-        <button
-          onClick={() => handleInteraction((currentIndex + 1) % images.length)}>
-          <GoChevronRight size={24} />
-        </button>
-      </div>
-
-      <div>
-        <img src={images[currentIndex].src} alt={images[currentIndex].alt} />
-      </div>
-
-      {/* Dot Navigation */}
-      <div className="dot-icon">
-        {images.map((_, index) => (
-          <button key={index} onClick={() => dots(index)}>
-            {currentIndex === index ? (
-              <GoDotFill size={24} />
-            ) : (
-              <GoDot size={24} />
-            )}
-          </button>
-        ))}
-      </div>
-    </>
+    <div className="carousel">
+      <PrevButton onClick={prevImage} />
+      <NextButton onClick={nextImage} />
+      <ImageCard image={images[imageIndex]} />
+      <Dots
+        numDots={images.length}
+        activeIndex={imageIndex}
+        onClick={(i) => setImageIndex(i)}
+      />
+    </div>
   );
+}
+
+type NextProps = {
+  onClick: () => void;
+};
+function NextButton({ onClick }: NextProps) {
+  return (
+    <GoChevronRight onClick={onClick} className="next-image" size="2rem" />
+  );
+}
+
+type PrevProps = {
+  onClick: () => void;
+};
+function PrevButton({ onClick }: PrevProps) {
+  return (
+    <GoChevronLeft onClick={onClick} className="previous-image" size="2rem" />
+  );
+}
+
+type CardProps = {
+  image: Image;
+};
+function ImageCard({ image }: CardProps) {
+  const { src, alt } = image;
+  return (
+    <div className="image-wrapper">
+      <img className="current-image" src={src} alt={alt} />
+      <h2 className="image-caption">{alt}</h2>
+    </div>
+  );
+}
+
+type DotsProps = {
+  numDots: number;
+  activeIndex: number;
+  onClick: (index: number) => void;
+};
+
+function Dots({ numDots, activeIndex, onClick }: DotsProps) {
+  const images = [];
+  for (let i = 0; i < numDots; i++) {
+    const Icon = i === activeIndex ? GoDotFill : GoDot;
+    images.push(
+      <Icon key={i} onClick={() => onClick(i)} className="progress-dot" />
+    );
+  }
+  return <div className="progress-dots">{images}</div>;
 }
