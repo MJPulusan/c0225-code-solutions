@@ -1,7 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-// type Props = {
-//   onDone: () => void;
-// };
 
 export function NotFound() {
   const navigate = useNavigate();
