@@ -6,14 +6,24 @@ import { Product } from '../lib/read';
 
 export function ProductDetails() {
   const { id } = useParams();
-  const [item, setItem] = useState<Product | undefined>();
+  const [item, setItem] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchProduct = async () => {
-      if (id) {
-        const product = await readProduct(Number(id));
-        setItem(product);
+      try {
+        if (id) {
+          const product = await readProduct(Number(id));
+          if (product) {
+            setItem(product);
+          } else {
+            setItem(null); // or handle this case in a different way
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching product:', error);
+        setItem(null); // Optionally, set an error state here
+      } finally {
         setLoading(false);
       }
     };

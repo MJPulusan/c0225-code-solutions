@@ -5,8 +5,9 @@ import { ProductDetails } from './pages/ProductDetails';
 import { About } from './pages/About';
 import { NotFound } from './pages/NotFound';
 import './Layout.css';
+import ItemDetails from './components/ItemDetails'; // Adjust the import path as needed
 
-export default function App() {
+export function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/item/:id" element={<ProductDetails />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/details/:id" element={<ItemDetails />} />
       </Route>
     </Routes>
   );
