@@ -24,7 +24,7 @@
   },
   "include": [
     "src",
-    "src/components/ItemDetails.tsx",
+    "src/pages/ProductDetails.tsx",
     "src/components/ItemComponent.tsx",
     "../pages/Catalog.tsx"
   ]

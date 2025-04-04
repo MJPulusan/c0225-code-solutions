@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-import '../Layout.css'; // Optional styling
+import '../Layout.css';
 
 export function Layout() {
   return (
@@ -7,8 +7,8 @@ export function Layout() {
       <h1 className="logo">Mockup</h1>
       <header className="header">
         <nav className="nav">
-          <Link to="/">Catalog</Link>
-          <Link to="/cart">Cart</Link>
+          <Link to="/About">About</Link>
+          <Link to="/Catalog">Catalog</Link>
         </nav>
       </header>
 

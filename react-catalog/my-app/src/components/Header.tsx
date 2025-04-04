@@ -1,21 +1,16 @@
 import { Link } from 'react-router-dom';
 
-export default function Header() {
+export function Header() {
   return (
-    <header style={{ backgroundColor: '#333', padding: '1rem' }}>
-      <nav>
-        <ul style={{ listStyle: 'none', display: 'flex', gap: '15px' }}>
-          <li>
-            <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>
-              Catalog
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" style={{ color: '#fff', textDecoration: 'none' }}>
-              About
-            </Link>
-          </li>
-        </ul>
+    <header className="header">
+      <h1 className="logo">Mockup</h1>
+      <nav className="nav">
+        <Link to="/about" className="nav-link">
+          About
+        </Link>
+        <Link to="/catalog" className="nav-link">
+          Catalog
+        </Link>
       </nav>
     </header>
   );

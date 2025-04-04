@@ -1,19 +1,28 @@
 import { Link } from 'react-router-dom';
+import { toDollars } from '../lib/to-dollars';
 
-interface ProductCardProps {
-  id: number;
+type ProductCardProps = {
+  productId: number;
   name: string;
   imageUrl: string;
   price: number;
-}
+  shortDescription: string;
+};
 
-export function ProductCard({ id, name, imageUrl, price }: ProductCardProps) {
+export function ProductCard({
+  productId,
+  imageUrl,
+  name,
+  price,
+  shortDescription,
+}: ProductCardProps) {
   return (
     <div className="product-card">
-      <Link to={`/details/${id}`}>
-        <img src={`/images/${imageUrl}`} alt={name} />
+      <Link to={`/details/${productId}`}>
+        <img src={imageUrl} alt={name} />
         <h3>{name}</h3>
-        <p>{`$${price.toFixed(2)}`}</p>
+        <p>{toDollars(price)}</p>
+        <p>{shortDescription}</p>
       </Link>
     </div>
   );

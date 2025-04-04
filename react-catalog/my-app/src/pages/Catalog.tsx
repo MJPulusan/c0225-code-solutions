@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { readCatalog, Product } from '../lib/read';
-import ItemComponent from '../components/ItemComponent';
+import { ProductCard } from '../components/ProductCard';
 
 export function Catalog() {
   const [catalogItems, setCatalogItems] = useState<Product[]>([]);
@@ -20,10 +20,10 @@ export function Catalog() {
 
   return (
     <div>
-      <h2>Catalog</h2>
+      <h1>Catalog</h1>
       <div className="catalog">
         {catalogItems.map((item) => (
-          <ItemComponent key={item.productId} item={item} />
+          <ProductCard key={item.productId} {...item} />
         ))}
       </div>
     </div>
