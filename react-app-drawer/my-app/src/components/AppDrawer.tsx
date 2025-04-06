@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { FaBars } from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
 import '../AppDrawer.css';
 
 type Props = {
-  menuItems: MenuItem[];
+  menuItems: Item[];
 };
 
-export type MenuItem = {
+export type Item = {
   name: string;
   iconUrl: string;
   path: string;
@@ -16,15 +16,16 @@ export type MenuItem = {
 export function AppDrawer({ menuItems }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
-  function handleToggle() {
+  function handleDisplay() {
     setIsOpen(!isOpen);
   }
 
   return (
     <div className="flex w-full">
       <div className={`menu-drawer ${isOpen ? 'is-open' : ''}`}>
-        <FaBars className="menu-icon" onClick={handleToggle} />
+        <FaBars className="menu-icon" onClick={handleDisplay} />
         {isOpen && <h3 className="menu-heading">Hylian Shopping</h3>}
+
         <ul className="menu-items">
           {menuItems.map((item) => (
             <li key={item.name} className="menu-item">
