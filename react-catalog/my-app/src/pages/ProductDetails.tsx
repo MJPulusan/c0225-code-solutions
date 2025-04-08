@@ -8,12 +8,21 @@ export function ProductDetails() {
   const navigate = useNavigate();
   const [item, setItem] = useState<Product>();
   const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<unknown>();
 
   useEffect(() => {
     const fetchProduct = async () => {
-      if (id) {
-        const product = await readProduct(Number(id));
-        setItem(product);
+      try {
+        if (id) {
+          const product = await readProduct(Number(id));
+          setItem(product);
+          setLoading(false);
+        }
+      } catch (err) {
+        setError(err);
+        console.error();
+        console.error('Failed to fetch product:', err);
+      } finally {
         setLoading(false);
       }
     };
@@ -31,6 +40,15 @@ export function ProductDetails() {
   }
 
   if (loading) return <div>Loading...</div>;
+
+  if (error)
+    return (
+      <div>
+        <p> Error!: Sorry, there was a problem loading the product details.</p>
+        {/* <pre>{(error as Error).message}</pre> */}
+      </div>
+    );
+
   if (!item) return <div>Product not found</div>;
 
   return (
