@@ -14,7 +14,7 @@ Answer the following questions in the provided markdown file before turning in t
   "where" clause followed by the attribute name equals the entry value name.
 
 - What are the benefits of formatting your SQL?
-  for readability, easier to find syntax errors and logical issues.
+  For readability, easier to find syntax errors and logical issues.
 
 - What are four comparison operators that can be used in a `where` clause?
   =, <, >, != operators.
