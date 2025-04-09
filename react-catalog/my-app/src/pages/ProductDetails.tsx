@@ -45,7 +45,6 @@ export function ProductDetails() {
     return (
       <div>
         <p> Error!: Sorry, there was a problem loading the product details.</p>
-        {/* <pre>{(error as Error).message}</pre> */}
       </div>
     );
 

@@ -29,7 +29,6 @@ export function Catalog() {
     return (
       <div>
         <p>Error!: Sorry, there was a problem loading the catalog.</p>
-        {/* <pre>{(error as Error).message}</pre> */}
       </div>
     );
 
