@@ -35,7 +35,7 @@ Answer the following questions in the provided markdown file before turning in t
 "deleted from actors"
 
 - How do you get back the modified row without a separate `select` statement?
-  by using "returning" clause.
+  by using "returning \*" clause.
 
 - Why did you get an error when trying to delete certain films?
   because of foreign key constraints which it might be a reference only from other tables.
