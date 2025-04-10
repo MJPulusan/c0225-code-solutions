@@ -1,0 +1,117 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #030303;
+  color: white;
+  padding: 0.5rem 30rem 0.5rem 0;
+}
+
+.logo {
+  font-size: xx-large;
+  padding-bottom: 0.5rem;
+}
+
+.nav a {
+  margin-left: 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: light;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.main {
+  padding: 2rem;
+  color: black;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  color: black;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+  background: #fff;
+}
+
+.product-card img {
+  width: 70%;
+  height: auto;
+  padding-bottom: 1rem;
+}
+
+.product-details {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.product-details img {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+button {
+  padding: 10px;
+  color: rgb(3, 3, 3);
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+h3 {
+  color: black;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: larger;
+}
+
+p {
+  margin-top: 0.5rem;
+  color: black;
+  font-size: 14px;
+}
+
+.back-link-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+.back-link {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.details-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.image-container img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+.info-container {
+  flex: 1;
+}
