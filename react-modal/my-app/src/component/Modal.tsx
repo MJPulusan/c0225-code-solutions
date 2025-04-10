@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useEffect, RefObject } from 'react';
+import { UseRef, ReactNode, useEffect, RefObject } from 'react';
 
 type Props = {
   children: ReactNode;
@@ -6,8 +6,9 @@ type Props = {
   onClose: () => void;
 };
 
-const Modal = forwardRef<HTMLDialogElement, Props>(
-  ({ children, isOpen, onClose }, ref) => {
+export function Modal({ children, isOpen, onClose }, Props) {
+const modal = useRef<HTMLDialogElement, Props>(null);
+
     useEffect(() => {
       const dialog = ref as RefObject<HTMLDialogElement>;
 
@@ -32,6 +33,4 @@ const Modal = forwardRef<HTMLDialogElement, Props>(
 
     return <dialog ref={ref}>{children}</dialog>;
   }
-);
-
-export default Modal;
+}
