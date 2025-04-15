@@ -51,12 +51,12 @@ app.put('/api/films/:filmId', async (req, res, next) => {
     const filmId = Number(req.params.filmId);
     const { title } = req.query;
 
-    // Validate filmId
+    // this is to validate filmId.
     if (!Number.isInteger(filmId) || filmId <= 0) {
       throw new ClientError(400, 'filmId must be a positive integer');
     }
 
-    // Validate title
+    // this is to validate title.
     if (typeof title !== 'string' || title.trim() === '') {
       throw new ClientError(
         400,
@@ -64,7 +64,7 @@ app.put('/api/films/:filmId', async (req, res, next) => {
       );
     }
 
-    // Update the film
+    // Update the film.
     const sql = `
       update "films"
       set title = $1
