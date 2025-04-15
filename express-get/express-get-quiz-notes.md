@@ -5,7 +5,7 @@
 Answer the following questions in the provided markdown file before turning in this exercise:
 
 - What is the purpose of the HTTP `GET` method?
-  the GET method helps you to Read the request data.
+  the GET method helps you to Read and retrieve the request data from server.
 
 - What is the appropriate `Content-Type` header for HTTP messages that contain JSON in their bodies?
   Content-Type: application/json
