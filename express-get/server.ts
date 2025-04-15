@@ -16,9 +16,9 @@ app.get('/api/countries', async (req, res, next) => {
   try {
     const sql = `
   select
-      "c"."countryId" as "Country ID",
-      "c"."name" as "Country Name",
-      count(*) as "Cities"
+      "c"."countryId",
+      "c"."name",
+      count(*) as "cities"
   from
       "countries" "c"
   join
@@ -45,14 +45,16 @@ app.get('/api/cities/:cityId', async (req, res, next) => {
     }
 
     const sql = `
-  select *
-  from
-      "cities" "ci"
-  join
-      "countries" "c" on "ci"."countryId" = "c"."countryId"
-  where
-      "ci"."cityId" = $1;
-`;
+    select
+        "ci".*, "c"."name" as "country"
+    from
+        "cities" as "ci"
+    join
+        "countries" as "c" on "ci"."countryId" = "c"."countryId"
+    where
+        "ci"."cityId" = $1;
+ `;
+
     const result = await db.query(sql, [cityId]);
     const city = result.rows[0];
 
