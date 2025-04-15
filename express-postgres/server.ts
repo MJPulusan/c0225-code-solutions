@@ -37,7 +37,7 @@ app.get('/api/films/:filmId', async (req, res, next) => {
     const film = result.rows[0];
 
     if (!film) {
-      throw new ClientError(404, `Film with ID ${'filmId'} not found`);
+      throw new ClientError(404, `Film with ID ${filmId} not found`);
     }
 
     res.json(film);
@@ -76,7 +76,7 @@ app.put('/api/films/:filmId', async (req, res, next) => {
     const updatedFilm = result.rows[0];
 
     if (!updatedFilm) {
-      throw new ClientError(404, `Film with ID ${'filmId'} not found`);
+      throw new ClientError(404, `Film with ID ${filmId} not found`);
     }
 
     res.json(updatedFilm);
