@@ -39,9 +39,7 @@ app.get(`/api/grades/:gradeId`, async (req, res, next) => {
     const grade = result.rows[0];
 
     if (!grade) {
-      return res
-        .status(404)
-        .json({ error: `Grade with ID ${gradeId} not found` });
+      throw new ClientError(404, `Grade with ID ${gradeId} not found`);
     }
 
     res.status(200).json(grade);
@@ -99,10 +97,10 @@ app.put('/api/grades/:gradeId', async (req, res, next) => {
       score < 0 ||
       score > 100
     ) {
-      return res.status(400).json({
-        error:
-          'Invalid input. "name", "course", and "score" (0 to 100) are required.',
-      });
+      throw new ClientError(
+        400,
+        'Invalid input. "name", "course", and "score" (0 to 100) are required.'
+      );
     }
 
     const sql = `
@@ -116,9 +114,7 @@ app.put('/api/grades/:gradeId', async (req, res, next) => {
     const updatedGrade = result.rows[0];
 
     if (!updatedGrade) {
-      return res
-        .status(404)
-        .json({ error: `Grade with ID ${gradeId} not found` });
+      throw new ClientError(404, `Grade with ID ${gradeId} not found`);
     }
 
     res.status(200).json(updatedGrade);
@@ -144,9 +140,7 @@ app.delete(`/api/grades/:gradeId`, async (req, res, next) => {
     const deletedGrade = result.rows[0];
 
     if (!deletedGrade) {
-      return res
-        .status(404)
-        .json({ error: `Grade with ID ${gradeId} not found` });
+      throw new ClientError(404, `Grade with ID ${gradeId} not found`);
     }
 
     res.sendStatus(200);
