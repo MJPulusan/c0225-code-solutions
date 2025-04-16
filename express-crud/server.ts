@@ -26,6 +26,7 @@ app.get('/api/grades', async (req, res, next) => {
 app.get(`/api/grades/:gradeId`, async (req, res, next) => {
   try {
     const { gradeId } = req.params;
+
     if (!Number(+gradeId)) {
       throw new ClientError(400, `Non-integer gradeId: ${gradeId}`);
     }
@@ -89,9 +90,7 @@ app.put('/api/grades/:gradeId', async (req, res, next) => {
     const gradeId = Number(req.params.gradeId);
     const { name, course, score } = req.body;
 
-    if (!Number(+gradeId)) {
-      throw new ClientError(400, 'Invalid gradeId');
-    }
+    validateGradeId(gradeId);
 
     if (
       typeof name !== 'string' ||
@@ -133,9 +132,7 @@ app.delete(`/api/grades/:gradeId`, async (req, res, next) => {
   try {
     const gradeId = Number(req.params.gradeId);
 
-    if (!Number(+gradeId)) {
-      throw new ClientError(400, 'Invalid gradeId');
-    }
+    validateGradeId(gradeId);
 
     const sql = `
       DELETE FROM "grades"
@@ -163,3 +160,9 @@ app.use(errorMiddleware);
 app.listen(8080, () => {
   console.log('listening on port 8080');
 });
+
+function validateGradeId(gradeId: number): void {
+  if (!Number(+gradeId)) {
+    throw new ClientError(400, 'Invalid gradeId');
+  }
+}
