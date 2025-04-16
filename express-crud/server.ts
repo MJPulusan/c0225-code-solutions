@@ -90,7 +90,7 @@ app.put('/api/grades/:gradeId', async (req, res, next) => {
     const { name, course, score } = req.body;
 
     if (!Number(+gradeId)) {
-      return res.status(400).json({ error: 'Invalid gradeId' });
+      throw new ClientError(400, 'Invalid gradeId');
     }
 
     if (
@@ -134,7 +134,7 @@ app.delete(`/api/grades/:gradeId`, async (req, res, next) => {
     const gradeId = Number(req.params.gradeId);
 
     if (!Number(+gradeId)) {
-      return res.status(400).json({ error: 'Invalid gradeId' });
+      throw new ClientError(400, 'Invalid gradeId');
     }
 
     const sql = `
