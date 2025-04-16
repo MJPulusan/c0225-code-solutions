@@ -1,37 +1,23 @@
 import './App.css';
-import { useRef, useState } from 'react';
-import Modal from './component/Modal';
+import { useState } from 'react';
+import { Modal } from './component/Modal';
 
 export default function App() {
-  const modal = useRef<HTMLDialogElement | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
-
-  function handleConfirmation() {
-    setIsOpen(true); // Open modal
-  }
-
-  function handleCancelbtn() {
-    setIsOpen(false); // Close modal
-  }
-
-  function handleDeletebtn() {
+  const [isDeleting, setIsDeleting] = useState(false);
+  function handleDelete(): void {
     alert('Item deleted!');
-    setIsOpen(false); // Close the modal after deletion
+    setIsDeleting(false);
   }
-
-  function handleModalClose() {
-    setIsOpen(false);
-  }
-
   return (
-    <div className="app-container">
-      <button onClick={handleConfirmation}>Delete Me!</button>
-
-      <Modal ref={modal} isOpen={isOpen} onClose={handleModalClose}>
+    <>
+      <button onClick={() => setIsDeleting(true)}>Delete Me!</button>
+      <Modal isOpen={isDeleting} onClose={() => setIsDeleting(false)}>
         <p>Are you sure you want to delete the item?</p>
-        <button onClick={handleCancelbtn}>Cancel</button>
-        <button onClick={handleDeletebtn}>Delete</button>
+        <button onClick={() => setIsDeleting(false)}>Cancel</button>
+        <button onClick={handleDelete} autoFocus>
+          Delete!
+        </button>
       </Modal>
-    </div>
+    </>
   );
 }

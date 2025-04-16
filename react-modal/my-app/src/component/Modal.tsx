@@ -1,4 +1,4 @@
-import { UseRef, ReactNode, useEffect, RefObject } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 type Props = {
   children: ReactNode;
@@ -6,31 +6,20 @@ type Props = {
   onClose: () => void;
 };
 
-export function Modal({ children, isOpen, onClose }, Props) {
-const modal = useRef<HTMLDialogElement, Props>(null);
+export function Modal({ children, isOpen, onClose }: Props) {
+  const modal = useRef<HTMLDialogElement>(null);
 
-    useEffect(() => {
-      const dialog = ref as RefObject<HTMLDialogElement>;
+  useEffect(() => {
+    if (isOpen) {
+      modal.current?.showModal();
+    } else {
+      modal.current?.close();
+    }
+  }, [isOpen]);
 
-      if (dialog && dialog.current) {
-        if (isOpen) {
-          dialog.current.showModal();
-        } else {
-          dialog.current.close();
-        }
-
-        const handleClose = () => {
-          onClose();
-        };
-
-        dialog.current?.addEventListener('close', handleClose);
-
-        return () => {
-          dialog.current?.removeEventListener('close', handleClose);
-        };
-      }
-    }, [isOpen, ref, onClose]);
-
-    return <dialog ref={ref}>{children}</dialog>;
-  }
+  return (
+    <dialog ref={modal} onClose={onClose}>
+      {children}
+    </dialog>
+  );
 }
