@@ -1,11 +1,11 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { readProduct, type Product, toDollars } from '../lib';
-import { CartContext } from '../components/CartContext';
+import { useCart } from '../components/useCart';
 
 export function ProductDetails() {
-  const { addToCart } = useContext(CartContext);
   const { productId } = useParams();
+  const { addToCart } = useCart();
   const navigate = useNavigate();
   const [product, setProduct] = useState<Product>();
   const [isLoading, setIsLoading] = useState(true);
@@ -29,15 +29,10 @@ export function ProductDetails() {
   }, [productId]);
 
   function handleAddToCart() {
-    if (product) {
-      addToCart(product);
-    }
+    if (!product) throw new Error('Should never happen');
+    addToCart(product);
+    navigate('/');
   }
-
-  if (!product) throw new Error('Should never happen');
-  alert(`Added ${product?.name} to cart`);
-  navigate('/');
-
   if (isLoading) return <div>Loading...</div>;
   if (error) {
     return (

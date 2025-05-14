@@ -4,19 +4,11 @@ import { About } from './pages/About';
 import { Catalog } from './pages/Catalog';
 import { NotFound } from './pages/NotFound';
 import { ProductDetails } from './pages/ProductDetails';
-import { CartContext } from './components/CartContext';
-import { Product } from './lib/data';
-import { useState } from 'react';
+import { CartProvider } from './components/CartContext';
 
 export function App() {
-  const [cart, setCart] = useState<Product[]>([]);
-
-  function addToCart(product: Product): void {
-    setCart([...cart, product]);
-  }
-
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartProvider>
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<Catalog />} />
@@ -25,6 +17,6 @@ export function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
