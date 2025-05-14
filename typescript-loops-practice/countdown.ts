@@ -40,6 +40,7 @@ function filterOutNulls(values: (string | null)[]): string[] {
 }
 console.log(filterOutNulls);
 
+// filterOutStrings
 function filterOutStrings(values: (number | string)[]): number[] {
   return values.filter(
     (item) => typeof item === 'number' || item === null
@@ -47,6 +48,7 @@ function filterOutStrings(values: (number | string)[]): number[] {
 }
 console.log(filterOutStrings);
 
+// includesSeven
 function includesSeven(values: number[]): boolean {
   for (const value of values) {
     if (value === 7) {
@@ -55,17 +57,22 @@ function includesSeven(values: number[]): boolean {
   }
   return false;
 }
-// console.log(includesSeven([7, 77, 87, 88, 67, 85, 44]));
-// console.log(includesSeven([87, 88, 67, 85, 44]));
+console.log(includesSeven);
 
-// function findIndex(array: number[], value: number): number {
-//   // Filter out the target number and find the smallest number in the remaining array
-//   const filteredArray = array.filter((item) => item !== value);
-//   return Math.min(...filteredArray);
-// }
-// console.log(findIndex);
+// findIndex
+function findIndex(array: any[], value: any): number {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === value) {
+      return i;
+    }
+  }
+  return -1;
+}
+console.log(findIndex);
 
-// function oddOrEven(numbers: number[]): string[] {
-//   return numbers.map((num) => (num % 2 === 0 ? 'even' : 'odd'));
-// }
-// console.log(oddOrEven);
+// oddOrEven
+function oddOrEven(numbers: number[]): string[] {
+  return numbers.map((num) => (num % 2 === 0 ? 'even' : 'odd'));
+}
+
+console.log(oddOrEven);
