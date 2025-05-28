@@ -10,25 +10,26 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="row">
-      <div class="column-third">
-        <i class="fa-solid fa-chevron-left"></i>
+    <div class="carousel-container">
+      <!-- Left Arrow -->
+      <i class="fa-solid fa-chevron-left control left"></i>
+
+      <!-- Image Carousel Area -->
+      <div class="carousel">
         <img class="photo-preview" src="images/001.png" alt="Bulbasaur" />
         <img class="photo-preview" src="images/004.png" alt="Charmander" />
         <img class="photo-preview" src="images/007.png" alt="Squirtle" />
         <img class="photo-preview" src="images/025.png" alt="Pikachu" />
-        <img class="photo-preview" src="images/039.png" alt="JigglyPuff" />
-
-        <div class="indicators">
-          <i class="fa-solid fa-circle"></i>
-          <i class="fa-regular fa-circle"></i>
-          <i class="fa-regular fa-circle"></i>
-          <i class="fa-regular fa-circle"></i>
-          <i class="fa-regular fa-circle"></i>
-        </div>
-        <i class="fa-solid fa-chevron-right"></i>
+        <img class="photo-preview" src="images/039.png" alt="Jigglypuff" />
       </div>
+
+      <!-- Right Arrow -->
+      <i class="fa-solid fa-chevron-right control right"></i>
+
+      <!-- Dots (will be added dynamically in TypeScript) -->
+      <div class="indicators"></div>
     </div>
+
     <script src="main.js"></script>
   </body>
 </html>

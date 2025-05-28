@@ -1,4 +1,4 @@
-*{
+/* *{
   width: 800px;
   margin: 0 auto;
 
@@ -29,4 +29,88 @@ i {
   cursor: pointer;
 
 }
+ */
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.carousel-container {
+  width: 700px;
+  max-width: 90%;
+  border: 2px solid #000;
+  padding: 1rem;
+  position: relative;
+  background-color: #fff;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+}
+
+.images {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.images img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+}
+
+.control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: black;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.control:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.left {
+  left: 30px;
+}
+
+.right {
+  right: 30px;
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.indicators span {
+  height: 12px;
+  width: 12px;
+  margin: 0 6px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicators span.active {
+  background-color: #000;
+}
